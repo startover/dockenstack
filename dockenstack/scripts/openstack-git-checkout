@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Embarrassingly bad shell scripting below (because one 'eval' isn't enough!)
 cd /devstack
 . functions

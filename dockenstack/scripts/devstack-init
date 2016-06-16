@@ -4,7 +4,7 @@ mysqld_safe &
 
 service rabbitmq-server start
 
-/opt/dockenstack/bin/wrapdocker 
+/opt/dockenstack/bin/wrapdocker
 
 # Matches the fixed range in the devstack localrc
 ifconfig eth0:1 inet 10.1.0.1/24
@@ -37,7 +37,11 @@ function docker_has_image {
 # devstack...
 # Icehouse-3
 if ! ( docker_has_image cirros ); then
-    docker pull cirros
+    if [ -f /opt/dockenstack/images/cirros.tar.gz ]; then
+        docker load < /opt/dockenstack/images/cirros.tar.gz
+    else
+        docker pull cirros
+    fi
 fi
 
 su devstack -c '/devstack/stack.sh'

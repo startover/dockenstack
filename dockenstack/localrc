@@ -11,6 +11,11 @@ VERBOSE=True
 LOG_COLOR=True
 SCREEN_LOGDIR=/opt/stack/logs
 
+NOVA_REPO=https://github.com/startover/nova.git
+#OFFLINE=True
+FLAT_INTERFACE=eth0
+ENABLE_IDENTITY_V2=False
+
 # Workaround bug in devstack that
 # prefers 'lo' over better options such as eth0.
 #
